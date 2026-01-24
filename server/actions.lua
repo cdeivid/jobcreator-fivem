@@ -50,9 +50,9 @@ AddEventHandler('jobcreator:server:bill', function(targetId, amount, reason)
         -- TODO: Add to society/job account if ESX society or similar is available
         
         Framework.Notify(source, _('success'), 'success')
-        Framework.Notify(targetId, string.format('You were billed $%d for: %s', amount, reason or 'Unknown'), 'info')
+        Framework.Notify(targetId, string.format(_('player_billed'), amount, reason or 'Unknown'), 'info')
     else
-        Framework.Notify(source, 'Player does not have enough money', 'error')
+        Framework.Notify(source, _('not_enough_money'), 'error')
     end
 end)
 
@@ -137,7 +137,7 @@ AddEventHandler('jobcreator:server:checkVehicleOwner', function(plate)
             if result[1] then
                 TriggerClientEvent('jobcreator:client:showVehicleOwner', source, result[1].owner, plate)
             else
-                Framework.Notify(source, 'No owner found', 'error')
+                Framework.Notify(source, _('no_owner_found'), 'error')
             end
         end)
     elseif Framework.Type == 'qbcore' then
@@ -147,7 +147,7 @@ AddEventHandler('jobcreator:server:checkVehicleOwner', function(plate)
             if result[1] then
                 TriggerClientEvent('jobcreator:client:showVehicleOwner', source, result[1].citizenid, plate)
             else
-                Framework.Notify(source, 'No owner found', 'error')
+                Framework.Notify(source, _('no_owner_found'), 'error')
             end
         end)
     end
@@ -211,7 +211,7 @@ AddEventHandler('jobcreator:server:cleanVehicle', function()
     end
     
     TriggerClientEvent('jobcreator:client:cleanVehicle', source)
-    Framework.Notify(source, 'Vehicle cleaned', 'success')
+    Framework.Notify(source, _('vehicle_cleaned'), 'success')
 end)
 
 -- Repair vehicle
@@ -224,7 +224,7 @@ AddEventHandler('jobcreator:server:repairVehicle', function()
     end
     
     TriggerClientEvent('jobcreator:client:repairVehicle', source)
-    Framework.Notify(source, 'Vehicle repaired', 'success')
+    Framework.Notify(source, _('vehicle_repaired'), 'success')
 end)
 
 -- Impound vehicle
@@ -237,5 +237,5 @@ AddEventHandler('jobcreator:server:impoundVehicle', function(plate)
     end
     
     TriggerClientEvent('jobcreator:client:impoundVehicle', source)
-    Framework.Notify(source, 'Vehicle impounded', 'success')
+    Framework.Notify(source, _('vehicle_impounded'), 'success')
 end)

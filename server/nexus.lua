@@ -17,7 +17,7 @@ AddEventHandler('jobcreator:server:shareJob', function(jobName)
     end
     
     if not Config.NexusAPIKey or Config.NexusAPIKey == '' then
-        Framework.Notify(source, 'Nexus API key not configured', 'error')
+        Framework.Notify(source, _('nexus_api_not_configured'), 'error')
         return
     end
     
@@ -43,7 +43,7 @@ AddEventHandler('jobcreator:server:shareJob', function(jobName)
                     if statusCode == 200 then
                         Framework.Notify(source, _('job_shared'), 'success')
                     else
-                        Framework.Notify(source, 'Failed to share job: ' .. statusCode, 'error')
+                        Framework.Notify(source, _('nexus_failed') .. ': ' .. statusCode, 'error')
                     end
                 end, 'POST', json.encode(jobData), {
                     ['Content-Type'] = 'application/json',
@@ -65,7 +65,7 @@ AddEventHandler('jobcreator:server:importJob', function(jobId)
     end
     
     if not Config.NexusAPIKey or Config.NexusAPIKey == '' then
-        Framework.Notify(source, 'Nexus API key not configured', 'error')
+        Framework.Notify(source, _('nexus_api_not_configured'), 'error')
         return
     end
     
@@ -95,11 +95,11 @@ AddEventHandler('jobcreator:server:importJob', function(jobId)
                     Framework.Notify(source, _('job_imported'), 'success')
                     TriggerClientEvent('jobcreator:client:refreshJobs', -1)
                 else
-                    Framework.Notify(source, 'Failed to import job', 'error')
+                    Framework.Notify(source, _('nexus_failed'), 'error')
                 end
             end)
         else
-            Framework.Notify(source, 'Failed to fetch job: ' .. statusCode, 'error')
+            Framework.Notify(source, _('nexus_failed') .. ': ' .. statusCode, 'error')
         end
     end, 'GET', '', {
         ['Authorization'] = 'Bearer ' .. Config.NexusAPIKey
@@ -116,7 +116,7 @@ AddEventHandler('jobcreator:server:getNexusJobs', function()
     end
     
     if not Config.NexusAPIKey or Config.NexusAPIKey == '' then
-        Framework.Notify(source, 'Nexus API key not configured', 'error')
+        Framework.Notify(source, _('nexus_api_not_configured'), 'error')
         return
     end
     
@@ -125,7 +125,7 @@ AddEventHandler('jobcreator:server:getNexusJobs', function()
             local jobs = json.decode(response)
             TriggerClientEvent('jobcreator:client:receiveNexusJobs', source, jobs)
         else
-            Framework.Notify(source, 'Failed to fetch Nexus jobs', 'error')
+            Framework.Notify(source, _('nexus_failed'), 'error')
         end
     end, 'GET', '', {
         ['Authorization'] = 'Bearer ' .. Config.NexusAPIKey

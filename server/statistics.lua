@@ -38,17 +38,18 @@ function Statistics.Update()
         end
     end
     
-    -- Update database in batch
-    for jobName, stats in pairs(jobStats) do
-        Citizen.CreateThread(function()
+    -- Update database in a single thread to prevent overhead
+    Citizen.CreateThread(function()
+        for jobName, stats in pairs(jobStats) do
             MySQL.Async.execute('INSERT INTO jobcreator_statistics (job_name, player_count, total_salary) VALUES (@job_name, @player_count, @total_salary) ON DUPLICATE KEY UPDATE player_count = @player_count, total_salary = @total_salary',
             {
                 ['@job_name'] = jobName,
                 ['@player_count'] = stats.player_count,
                 ['@total_salary'] = stats.total_salary
             }, function() end)
-        end)
-    end
+            Citizen.Wait(10) -- Small delay between queries
+        end
+    end)
 end
 
 -- Get statistics

@@ -100,6 +100,15 @@ Locales['es'] = {
     ['invalid_input'] = 'Entrada inválida',
     ['player_not_found'] = 'Jugador no encontrado',
     ['action_failed'] = 'Acción fallida',
+    ['nexus_api_not_configured'] = 'Clave API de Nexus no configurada',
+    ['nexus_failed'] = 'Fallo al conectar con Nexus',
+    ['not_enough_money'] = 'El jugador no tiene suficiente dinero',
+    ['no_vehicle_nearby'] = 'No hay vehículo cercano',
+    ['no_owner_found'] = 'No se encontró propietario',
+    ['vehicle_cleaned'] = 'Vehículo limpiado',
+    ['vehicle_repaired'] = 'Vehículo reparado',
+    ['vehicle_impounded'] = 'Vehículo embargado',
+    ['player_billed'] = 'Te cobraron $%s por: %s',
     
     -- Success
     ['success'] = 'Éxito',
