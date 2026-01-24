@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Creator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app" style="display: none;">
+        <div class="container">
+            <div class="header">
+                <h1>Job Creator</h1>
+                <button class="close-btn" onclick="closeUI()">×</button>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" onclick="showTab('jobs')">Jobs</button>
+                <button class="tab-btn" onclick="showTab('grades')">Grades</button>
+                <button class="tab-btn" onclick="showTab('markers')">Markers</button>
+                <button class="tab-btn" onclick="showTab('actions')">Actions</button>
+                <button class="tab-btn" onclick="showTab('nexus')">Nexus</button>
+                <button class="tab-btn" onclick="showTab('statistics')">Statistics</button>
+            </div>
+            
+            <div class="content">
+                <!-- Jobs Tab -->
+                <div id="jobs-tab" class="tab-content active">
+                    <div class="toolbar">
+                        <button class="btn btn-primary" onclick="openCreateJobModal()">Create Job</button>
+                    </div>
+                    <div id="jobs-list" class="list">
+                        <!-- Jobs will be populated here -->
+                    </div>
+                </div>
+                
+                <!-- Grades Tab -->
+                <div id="grades-tab" class="tab-content">
+                    <div class="toolbar">
+                        <select id="grade-job-select" class="select">
+                            <option value="">Select a job</option>
+                        </select>
+                        <button class="btn btn-primary" onclick="openCreateGradeModal()">Create Grade</button>
+                    </div>
+                    <div id="grades-list" class="list">
+                        <!-- Grades will be populated here -->
+                    </div>
+                </div>
+                
+                <!-- Markers Tab -->
+                <div id="markers-tab" class="tab-content">
+                    <div class="toolbar">
+                        <button class="btn btn-primary" onclick="openCreateMarkerModal()">Create Marker at Current Position</button>
+                    </div>
+                    <div id="markers-list" class="list">
+                        <!-- Markers will be populated here -->
+                    </div>
+                </div>
+                
+                <!-- Actions Tab -->
+                <div id="actions-tab" class="tab-content">
+                    <div class="actions-grid">
+                        <button class="action-btn" onclick="performAction('handcuff')">
+                            <span>👮</span>
+                            <p>Handcuff</p>
+                        </button>
+                        <button class="action-btn" onclick="performAction('bill')">
+                            <span>💰</span>
+                            <p>Bill</p>
+                        </button>
+                        <button class="action-btn" onclick="performAction('search')">
+                            <span>🔍</span>
+                            <p>Search</p>
+                        </button>
+                        <button class="action-btn" onclick="performAction('heal')">
+                            <span>💊</span>
+                            <p>Heal</p>
+                        </button>
+                        <button class="action-btn" onclick="performAction('revive')">
+                            <span>❤️</span>
+                            <p>Revive</p>
+                        </button>
+                        <button class="action-btn" onclick="performAction('check_identity')">
+                            <span>🆔</span>
+                            <p>Check ID</p>
+                        </button>
+                        <button class="action-btn" onclick="performVehicleAction('lockpick')">
+                            <span>🔓</span>
+                            <p>Lockpick</p>
+                        </button>
+                        <button class="action-btn" onclick="performVehicleAction('clean')">
+                            <span>🧽</span>
+                            <p>Clean Vehicle</p>
+                        </button>
+                        <button class="action-btn" onclick="performVehicleAction('repair')">
+                            <span>🔧</span>
+                            <p>Repair Vehicle</p>
+                        </button>
+                        <button class="action-btn" onclick="performVehicleAction('impound')">
+                            <span>🚓</span>
+                            <p>Impound</p>
+                        </button>
+                        <button class="action-btn" onclick="performVehicleAction('check_owner')">
+                            <span>📋</span>
+                            <p>Check Owner</p>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Nexus Tab -->
+                <div id="nexus-tab" class="tab-content">
+                    <div class="toolbar">
+                        <button class="btn btn-primary" onclick="loadNexusJobs()">Load Jobs from Nexus</button>
+                    </div>
+                    <div id="nexus-list" class="list">
+                        <!-- Nexus jobs will be populated here -->
+                    </div>
+                </div>
+                
+                <!-- Statistics Tab -->
+                <div id="statistics-tab" class="tab-content">
+                    <div class="toolbar">
+                        <button class="btn btn-primary" onclick="loadStatistics()">Refresh Statistics</button>
+                    </div>
+                    <div id="statistics-content">
+                        <!-- Statistics will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modals will be created dynamically by JavaScript -->
+    
+    <script src="script.js"></script>
+</body>
+</html>
