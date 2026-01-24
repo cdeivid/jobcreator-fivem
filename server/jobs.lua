@@ -43,7 +43,7 @@ AddEventHandler('jobcreator:server:createJob', function(data)
             Jobs.LoadAll()
             
             -- Create default grade
-            Database.CreateGrade(data.name, 0, 'recruit', _('recruit'), 0, function(gradeSuccess)
+            Database.CreateGrade(data.name, 0, 'recruit', 'Recruit', 0, function(gradeSuccess)
                 Framework.Notify(source, _('job_created'), 'success')
                 TriggerClientEvent('jobcreator:client:refreshJobs', -1)
             end)
@@ -154,27 +154,22 @@ AddEventHandler('jobcreator:server:removeFromWhitelist', function(jobName, targe
 end)
 
 -- Check if player can access job
-function Jobs.CanAccessJob(source, jobName)
+function Jobs.CanAccessJob(source, jobName, callback)
     local job = Jobs.List[jobName]
-    if not job then return false end
+    if not job then 
+        if callback then callback(false) end
+        return 
+    end
     
     if not job.whitelisted or job.whitelisted == 0 then
-        return true
+        if callback then callback(true) end
+        return
     end
     
     local identifier = Framework.GetIdentifier(source)
-    local canAccess = false
-    
     Database.IsWhitelisted(jobName, identifier, function(isWhitelisted)
-        canAccess = isWhitelisted
+        if callback then callback(isWhitelisted) end
     end)
-    
-    -- Wait for async callback
-    while canAccess == nil do
-        Citizen.Wait(10)
-    end
-    
-    return canAccess
 end
 
 -- Initialize

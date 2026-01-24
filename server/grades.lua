@@ -95,18 +95,20 @@ AddEventHandler('jobcreator:server:setJob', function(targetId, jobName, grade)
     end
     
     -- Check whitelist
-    if not Jobs.CanAccessJob(targetId, jobName) then
-        Framework.Notify(source, _('no_permission'), 'error')
-        return
-    end
-    
-    -- Set job
-    local success = Framework.SetPlayerJob(targetId, jobName, grade)
-    
-    if success then
-        Framework.Notify(source, _('success'), 'success')
-        Framework.Notify(targetId, _('job_updated'), 'info')
-    else
-        Framework.Notify(source, _('action_failed'), 'error')
-    end
+    Jobs.CanAccessJob(targetId, jobName, function(canAccess)
+        if not canAccess then
+            Framework.Notify(source, _('no_permission'), 'error')
+            return
+        end
+        
+        -- Set job
+        local success = Framework.SetPlayerJob(targetId, jobName, grade)
+        
+        if success then
+            Framework.Notify(source, _('success'), 'success')
+            Framework.Notify(targetId, _('job_updated'), 'info')
+        else
+            Framework.Notify(source, _('action_failed'), 'error')
+        end
+    end)
 end)

@@ -1,8 +1,32 @@
 -- Placeholder locales for additional languages
--- These can be translated by the community
+-- These should be translated by the community
 
-Locales['el'] = Locales['en']  -- Greek (to be translated)
-Locales['bs'] = Locales['en']  -- Bosnian (to be translated)
-Locales['sk'] = Locales['en']  -- Slovak (to be translated)
-Locales['da'] = Locales['en']  -- Danish (to be translated)
-Locales['cs'] = Locales['en']  -- Czech (to be translated)
+-- Greek - Placeholder (needs translation)
+Locales['el'] = {}
+for k, v in pairs(Locales['en']) do
+    Locales['el'][k] = v .. ' [EL]'
+end
+
+-- Bosnian - Placeholder (needs translation)
+Locales['bs'] = {}
+for k, v in pairs(Locales['en']) do
+    Locales['bs'][k] = v .. ' [BS]'
+end
+
+-- Slovak - Placeholder (needs translation)
+Locales['sk'] = {}
+for k, v in pairs(Locales['en']) do
+    Locales['sk'][k] = v .. ' [SK]'
+end
+
+-- Danish - Placeholder (needs translation)
+Locales['da'] = {}
+for k, v in pairs(Locales['en']) do
+    Locales['da'][k] = v .. ' [DA]'
+end
+
+-- Czech - Placeholder (needs translation)
+Locales['cs'] = {}
+for k, v in pairs(Locales['en']) do
+    Locales['cs'][k] = v .. ' [CS]'
+end
