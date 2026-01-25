@@ -27,3 +27,4 @@ build/
 # Backup files
 *.bak
 *~
+html/style_old.css
