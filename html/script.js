@@ -213,7 +213,15 @@ function showJobTab(tabId) {
     document.querySelectorAll('.job-tab-btn').forEach(btn => {
         btn.classList.remove('active');
     });
-    event.target.classList.add('active');
+    
+    // Find and activate the clicked button
+    const clickedBtn = Array.from(document.querySelectorAll('.job-tab-btn')).find(btn => {
+        const onclick = btn.getAttribute('onclick');
+        return onclick && onclick.includes(`'${tabId}'`);
+    });
+    if (clickedBtn) {
+        clickedBtn.classList.add('active');
+    }
 }
 
 function renderJobRanks() {

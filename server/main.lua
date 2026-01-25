@@ -36,8 +36,16 @@ AddEventHandler('jobcreator:server:saveSettings', function(settings)
     -- Update config dynamically (in-memory only, requires restart for persistence)
     if settings.language then Config.Locale = settings.language end
     if settings.targeting then 
-        Config.UseOXTarget = settings.targeting == 'ox_target'
-        Config.UseQBTarget = settings.targeting == 'qb-target'
+        if settings.targeting == 'ox_target' then
+            Config.UseOXTarget = true
+            Config.UseQBTarget = false
+        elseif settings.targeting == 'qb-target' then
+            Config.UseOXTarget = false
+            Config.UseQBTarget = true
+        else
+            Config.UseOXTarget = false
+            Config.UseQBTarget = false
+        end
     end
     if settings.unemployedJob then Config.DefaultUnemployedJob = settings.unemployedJob end
     if settings.unemployedGrade then Config.DefaultUnemployedGrade = settings.unemployedGrade end
