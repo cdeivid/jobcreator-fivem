@@ -14,123 +14,345 @@
                 <button class="close-btn" onclick="closeUI()">×</button>
             </div>
             
-            <div class="tabs">
-                <button class="tab-btn active" onclick="showTab('jobs')">Jobs</button>
-                <button class="tab-btn" onclick="showTab('grades')">Grades</button>
-                <button class="tab-btn" onclick="showTab('markers')">Markers</button>
-                <button class="tab-btn" onclick="showTab('actions')">Actions</button>
-                <button class="tab-btn" onclick="showTab('nexus')">Nexus</button>
-                <button class="tab-btn" onclick="showTab('statistics')">Statistics</button>
-            </div>
-            
-            <div class="content">
-                <!-- Jobs Tab -->
-                <div id="jobs-tab" class="tab-content active">
-                    <div class="toolbar">
-                        <button class="btn btn-primary" onclick="openCreateJobModal()">Create Job</button>
-                    </div>
-                    <div id="jobs-list" class="list">
-                        <!-- Jobs will be populated here -->
-                    </div>
+            <div class="main-layout">
+                <!-- Sidebar Navigation -->
+                <div class="sidebar">
+                    <button class="sidebar-btn active" onclick="showSection('jobs')" data-section="jobs">
+                        <span class="icon">💼</span>
+                        <span class="label">Jobs</span>
+                    </button>
+                    <button class="sidebar-btn" onclick="showSection('public-markers')" data-section="public-markers">
+                        <span class="icon">📍</span>
+                        <span class="label">Public Markers</span>
+                    </button>
+                    <button class="sidebar-btn" onclick="showSection('statistics')" data-section="statistics">
+                        <span class="icon">📊</span>
+                        <span class="label">Statistics</span>
+                    </button>
+                    <button class="sidebar-btn" onclick="showSection('nexus')" data-section="nexus">
+                        <span class="icon">🌐</span>
+                        <span class="label">Nexus</span>
+                    </button>
+                    <button class="sidebar-btn" onclick="showSection('settings')" data-section="settings">
+                        <span class="icon">⚙️</span>
+                        <span class="label">Settings</span>
+                    </button>
                 </div>
                 
-                <!-- Grades Tab -->
-                <div id="grades-tab" class="tab-content">
-                    <div class="toolbar">
-                        <select id="grade-job-select" class="select">
-                            <option value="">Select a job</option>
-                        </select>
-                        <button class="btn btn-primary" onclick="openCreateGradeModal()">Create Grade</button>
+                <!-- Main Content Area -->
+                <div class="content">
+                    <!-- Jobs Section -->
+                    <div id="jobs-section" class="section active">
+                        <div class="section-header">
+                            <h2>Jobs Management</h2>
+                            <button class="btn btn-primary" onclick="openCreateJobModal()">+ Create Job</button>
+                        </div>
+                        <div id="jobs-list" class="jobs-list">
+                            <!-- Jobs will be populated here -->
+                        </div>
                     </div>
-                    <div id="grades-list" class="list">
-                        <!-- Grades will be populated here -->
+                    
+                    <!-- Public Markers Section -->
+                    <div id="public-markers-section" class="section">
+                        <div class="section-header">
+                            <h2>Public Markers</h2>
+                        </div>
+                        <div class="markers-grid">
+                            <div class="marker-card" onclick="openCreateMarkerModal('stash')">
+                                <span class="marker-icon">📦</span>
+                                <h3>Stash</h3>
+                            </div>
+                            <div class="marker-card" onclick="openCreateMarkerModal('armory')">
+                                <span class="marker-icon">🔫</span>
+                                <h3>Armory</h3>
+                            </div>
+                            <div class="marker-card" onclick="openCreateMarkerModal('safe')">
+                                <span class="marker-icon">🔒</span>
+                                <h3>Safe</h3>
+                            </div>
+                            <div class="marker-card" onclick="openCreateMarkerModal('garage')">
+                                <span class="marker-icon">🚗</span>
+                                <h3>Garage</h3>
+                            </div>
+                            <div class="marker-card" onclick="openCreateMarkerModal('wardrobe')">
+                                <span class="marker-icon">👔</span>
+                                <h3>Wardrobe</h3>
+                            </div>
+                            <div class="marker-card" onclick="openCreateMarkerModal('job_outfit')">
+                                <span class="marker-icon">👕</span>
+                                <h3>Job Outfit</h3>
+                            </div>
+                            <div class="marker-card" onclick="openCreateMarkerModal('shop')">
+                                <span class="marker-icon">🏪</span>
+                                <h3>Shop</h3>
+                            </div>
+                            <div class="marker-card" onclick="openCreateMarkerModal('market')">
+                                <span class="marker-icon">🛒</span>
+                                <h3>Market</h3>
+                            </div>
+                            <div class="marker-card" onclick="openCreateMarkerModal('harvest')">
+                                <span class="marker-icon">🌾</span>
+                                <h3>Harvest Point</h3>
+                            </div>
+                            <div class="marker-card" onclick="openCreateMarkerModal('process')">
+                                <span class="marker-icon">⚙️</span>
+                                <h3>Process Point</h3>
+                            </div>
+                            <div class="marker-card" onclick="openCreateMarkerModal('crafting')">
+                                <span class="marker-icon">🔨</span>
+                                <h3>Crafting Table</h3>
+                            </div>
+                            <div class="marker-card" onclick="openCreateMarkerModal('teleport')">
+                                <span class="marker-icon">🚪</span>
+                                <h3>Teleport Point</h3>
+                            </div>
+                            <div class="marker-card" onclick="openCreateMarkerModal('weapon_upgrader')">
+                                <span class="marker-icon">⚔️</span>
+                                <h3>Weapon Upgrader</h3>
+                            </div>
+                            <div class="marker-card" onclick="openCreateMarkerModal('jobshop')">
+                                <span class="marker-icon">🏬</span>
+                                <h3>Job Shop</h3>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Markers Tab -->
-                <div id="markers-tab" class="tab-content">
-                    <div class="toolbar">
-                        <button class="btn btn-primary" onclick="openCreateMarkerModal()">Create Marker at Current Position</button>
+                    
+                    <!-- Statistics Section -->
+                    <div id="statistics-section" class="section">
+                        <div class="section-header">
+                            <h2>Global Statistics</h2>
+                            <button class="btn btn-secondary" onclick="loadStatistics()">🔄 Refresh</button>
+                        </div>
+                        <div id="statistics-content" class="statistics-content">
+                            <!-- Statistics will be populated here -->
+                        </div>
                     </div>
-                    <div id="markers-list" class="list">
-                        <!-- Markers will be populated here -->
+                    
+                    <!-- Nexus Section -->
+                    <div id="nexus-section" class="section">
+                        <div class="section-header">
+                            <h2>Nexus</h2>
+                        </div>
+                        <div class="coming-soon">
+                            <span class="coming-soon-icon">🚀</span>
+                            <h2>Coming Soon</h2>
+                            <p>Job sharing network feature will be available in the next update</p>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Actions Tab -->
-                <div id="actions-tab" class="tab-content">
-                    <div class="actions-grid">
-                        <button class="action-btn" onclick="performAction('handcuff')">
-                            <span>👮</span>
-                            <p>Handcuff</p>
-                        </button>
-                        <button class="action-btn" onclick="performAction('bill')">
-                            <span>💰</span>
-                            <p>Bill</p>
-                        </button>
-                        <button class="action-btn" onclick="performAction('search')">
-                            <span>🔍</span>
-                            <p>Search</p>
-                        </button>
-                        <button class="action-btn" onclick="performAction('heal')">
-                            <span>💊</span>
-                            <p>Heal</p>
-                        </button>
-                        <button class="action-btn" onclick="performAction('revive')">
-                            <span>❤️</span>
-                            <p>Revive</p>
-                        </button>
-                        <button class="action-btn" onclick="performAction('check_identity')">
-                            <span>🆔</span>
-                            <p>Check ID</p>
-                        </button>
-                        <button class="action-btn" onclick="performVehicleAction('lockpick')">
-                            <span>🔓</span>
-                            <p>Lockpick</p>
-                        </button>
-                        <button class="action-btn" onclick="performVehicleAction('clean')">
-                            <span>🧽</span>
-                            <p>Clean Vehicle</p>
-                        </button>
-                        <button class="action-btn" onclick="performVehicleAction('repair')">
-                            <span>🔧</span>
-                            <p>Repair Vehicle</p>
-                        </button>
-                        <button class="action-btn" onclick="performVehicleAction('impound')">
-                            <span>🚓</span>
-                            <p>Impound</p>
-                        </button>
-                        <button class="action-btn" onclick="performVehicleAction('check_owner')">
-                            <span>📋</span>
-                            <p>Check Owner</p>
-                        </button>
+                    
+                    <!-- Settings Section -->
+                    <div id="settings-section" class="section">
+                        <div class="section-header">
+                            <h2>Settings</h2>
+                            <button class="btn btn-primary" onclick="saveSettings()">💾 Save Settings</button>
+                        </div>
+                        <div class="settings-content">
+                            <div class="settings-group">
+                                <h3>General Settings</h3>
+                                <div class="setting-item">
+                                    <label>Menu Language</label>
+                                    <select id="setting-language" class="input">
+                                        <option value="en">English</option>
+                                        <option value="es">Español</option>
+                                        <option value="fr">Français</option>
+                                        <option value="de">Deutsch</option>
+                                        <option value="it">Italiano</option>
+                                        <option value="pt">Português</option>
+                                        <option value="pl">Polski</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-group">
+                                <h3>Menu Configuration</h3>
+                                <div class="setting-item">
+                                    <label>Player Menu Script</label>
+                                    <select id="setting-player-menu" class="input">
+                                        <option value="default">Default</option>
+                                        <option value="esx_menu_default">ESX Menu Default</option>
+                                        <option value="esx_menu_dialog">ESX Menu Dialog</option>
+                                        <option value="qb-menu">QB Menu</option>
+                                    </select>
+                                </div>
+                                <div class="setting-item">
+                                    <label>Targeting Script</label>
+                                    <select id="setting-targeting" class="input">
+                                        <option value="none">None</option>
+                                        <option value="ox_target">OX Target</option>
+                                        <option value="qb-target">QB Target</option>
+                                    </select>
+                                </div>
+                                <div class="setting-item">
+                                    <label>Help Notification Style</label>
+                                    <select id="setting-help-notification" class="input">
+                                        <option value="default">Default</option>
+                                        <option value="3dtext">3D Text</option>
+                                        <option value="none">None</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-group">
+                                <h3>Unemployment Configuration</h3>
+                                <div class="setting-item">
+                                    <label>Unemployed Job ID</label>
+                                    <input type="text" id="setting-unemployed-job" class="input" placeholder="unemployed">
+                                </div>
+                                <div class="setting-item">
+                                    <label>Unemployed Grade</label>
+                                    <input type="number" id="setting-unemployed-grade" class="input" placeholder="0" value="0">
+                                </div>
+                            </div>
+                            
+                            <div class="settings-group">
+                                <h3>Permissions</h3>
+                                <div class="setting-item checkbox-item">
+                                    <input type="checkbox" id="setting-use-ace">
+                                    <label for="setting-use-ace">Use ACE Permissions</label>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-group">
+                                <h3>Advanced Options</h3>
+                                <div class="setting-item checkbox-item">
+                                    <input type="checkbox" id="setting-old-esx-safe">
+                                    <label for="setting-old-esx-safe">Enable Cash Safe for Old ESX Versions</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Nexus Tab -->
-                <div id="nexus-tab" class="tab-content">
-                    <div class="toolbar">
-                        <button class="btn btn-primary" onclick="loadNexusJobs()">Load Jobs from Nexus</button>
-                    </div>
-                    <div id="nexus-list" class="list">
-                        <!-- Nexus jobs will be populated here -->
-                    </div>
-                </div>
-                
-                <!-- Statistics Tab -->
-                <div id="statistics-tab" class="tab-content">
-                    <div class="toolbar">
-                        <button class="btn btn-primary" onclick="loadStatistics()">Refresh Statistics</button>
-                    </div>
-                    <div id="statistics-content">
-                        <!-- Statistics will be populated here -->
+                    
+                    <!-- Job Detail View (Hidden by default) -->
+                    <div id="job-detail-section" class="section" style="display: none;">
+                        <div class="section-header">
+                            <button class="btn btn-secondary" onclick="backToJobsList()">← Back</button>
+                            <h2 id="job-detail-title">Job Details</h2>
+                            <div class="header-actions">
+                                <button class="btn btn-success" onclick="saveJobChanges()">💾 Save Changes</button>
+                                <button class="btn btn-danger" onclick="deleteCurrentJob()">🗑️ Delete Job</button>
+                            </div>
+                        </div>
+                        
+                        <div class="job-detail-tabs">
+                            <button class="job-tab-btn active" onclick="showJobTab('ranks')">Ranks</button>
+                            <button class="job-tab-btn" onclick="showJobTab('markers')">Markers</button>
+                            <button class="job-tab-btn" onclick="showJobTab('job-statistics')">Statistics</button>
+                            <button class="job-tab-btn" onclick="showJobTab('job-settings')">Settings</button>
+                        </div>
+                        
+                        <div class="job-detail-content">
+                            <!-- Ranks Tab -->
+                            <div id="ranks-tab" class="job-tab-content active">
+                                <button class="btn btn-primary" onclick="openCreateRankModal()">+ Create Rank</button>
+                                <div id="ranks-list" class="ranks-list">
+                                    <!-- Ranks will be populated here -->
+                                </div>
+                            </div>
+                            
+                            <!-- Markers Tab -->
+                            <div id="markers-tab" class="job-tab-content">
+                                <button class="btn btn-primary" onclick="openCreateJobMarkerModal()">+ Create Marker</button>
+                                <div id="job-markers-list" class="markers-list">
+                                    <!-- Job markers will be populated here -->
+                                </div>
+                            </div>
+                            
+                            <!-- Job Statistics Tab -->
+                            <div id="job-statistics-tab" class="job-tab-content">
+                                <div id="job-stats-content">
+                                    <!-- Job statistics will be populated here -->
+                                </div>
+                            </div>
+                            
+                            <!-- Job Settings Tab -->
+                            <div id="job-settings-tab" class="job-tab-content">
+                                <div class="job-settings-content">
+                                    <div class="settings-group">
+                                        <h3>Job Permissions</h3>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-whitelisted">
+                                            <label for="job-whitelisted">Whitelisted</label>
+                                        </div>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-actions-menu">
+                                            <label for="job-actions-menu">Actions Menu</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="settings-group">
+                                        <h3>Player Interactions</h3>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-can-search">
+                                            <label for="job-can-search">Search Players</label>
+                                        </div>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-can-handcuff">
+                                            <label for="job-can-handcuff">Handcuff Players</label>
+                                        </div>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-can-heal">
+                                            <label for="job-can-heal">Heal Players</label>
+                                        </div>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-can-revive">
+                                            <label for="job-can-revive">Revive Players</label>
+                                        </div>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-can-bill">
+                                            <label for="job-can-bill">Bill Players</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="settings-group">
+                                        <h3>Identity & License Checks</h3>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-can-check-identity">
+                                            <label for="job-can-check-identity">View Identities</label>
+                                        </div>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-can-check-license">
+                                            <label for="job-can-check-license">View Driver Licenses</label>
+                                        </div>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-can-check-weapon-license">
+                                            <label for="job-can-check-weapon-license">View Weapon Licenses</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="settings-group">
+                                        <h3>Vehicle Actions</h3>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-can-lockpick">
+                                            <label for="job-can-lockpick">Force Vehicle Locks</label>
+                                        </div>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-can-repair">
+                                            <label for="job-can-repair">Repair Vehicles</label>
+                                        </div>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-can-clean">
+                                            <label for="job-can-clean">Clean Vehicles</label>
+                                        </div>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-can-impound">
+                                            <label for="job-can-impound">Impound Vehicles</label>
+                                        </div>
+                                        <div class="setting-item checkbox-item">
+                                            <input type="checkbox" id="job-can-check-owner">
+                                            <label for="job-can-check-owner">View Vehicle Owner</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     
-    <!-- Modals will be created dynamically by JavaScript -->
+    <!-- Modal Container -->
+    <div id="modal-container"></div>
     
     <script src="script.js"></script>
 </body>

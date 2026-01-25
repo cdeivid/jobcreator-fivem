@@ -111,6 +111,27 @@ AddEventHandler('jobcreator:client:receiveStatistics', function(stats)
     })
 end)
 
+-- Get current coordinates
+RegisterNUICallback('getCurrentCoords', function(data, cb)
+    local ped = PlayerPedId()
+    local coords = GetEntityCoords(ped)
+    
+    SendNUIMessage({
+        action = 'setCoords',
+        x = coords.x,
+        y = coords.y,
+        z = coords.z
+    })
+    
+    cb('ok')
+end)
+
+-- Save settings
+RegisterNUICallback('saveSettings', function(data, cb)
+    TriggerServerEvent('jobcreator:server:saveSettings', data)
+    cb('ok')
+end)
+
 -- Nexus - Share job
 RegisterNUICallback('shareJob', function(data, cb)
     TriggerServerEvent('jobcreator:server:shareJob', data.jobName)

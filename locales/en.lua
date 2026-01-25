@@ -29,6 +29,7 @@ Locales['en'] = {
     -- Grades/Ranks
     ['grade_management'] = 'Grade Management',
     ['create_grade'] = 'Create Grade',
+    ['create_rank'] = 'Create Rank',
     ['edit_grade'] = 'Edit Grade',
     ['delete_grade'] = 'Delete Grade',
     ['grade_name'] = 'Grade Name',
@@ -60,6 +61,11 @@ Locales['en'] = {
     ['marker_harvest'] = 'Harvest Point',
     ['marker_processing'] = 'Processing Point',
     ['marker_armory'] = 'Armory',
+    ['marker_stash'] = 'Stash',
+    ['marker_wardrobe'] = 'Wardrobe',
+    ['marker_job_outfit'] = 'Job Outfit',
+    ['marker_weapon_upgrader'] = 'Weapon Upgrader',
+    ['marker_jobshop'] = 'Job Shop',
     
     -- Actions
     ['handcuff'] = 'Handcuff',
@@ -86,6 +92,7 @@ Locales['en'] = {
     ['import_job'] = 'Import Job',
     ['job_shared'] = 'Job shared successfully',
     ['job_imported'] = 'Job imported successfully',
+    ['coming_soon'] = 'Coming Soon',
     
     -- Statistics
     ['statistics'] = 'Statistics',
@@ -93,6 +100,20 @@ Locales['en'] = {
     ['player_count'] = 'Player Count',
     ['economic_balance'] = 'Economic Balance',
     ['grade_distribution'] = 'Grade Distribution',
+    
+    -- Settings
+    ['settings'] = 'Settings',
+    ['language'] = 'Language',
+    ['menu_language'] = 'Menu Language',
+    ['player_menu'] = 'Player Menu',
+    ['targeting_script'] = 'Targeting Script',
+    ['help_notification'] = 'Help Notification',
+    ['unemployed_job'] = 'Unemployed Job ID',
+    ['unemployed_grade'] = 'Unemployed Grade',
+    ['use_ace_permissions'] = 'Use ACE Permissions',
+    ['advanced_options'] = 'Advanced Options',
+    ['old_esx_safe'] = 'Cash Safe for Old ESX',
+    ['settings_saved'] = 'Settings saved',
     
     -- Errors
     ['error'] = 'Error',
