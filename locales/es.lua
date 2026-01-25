@@ -29,6 +29,7 @@ Locales['es'] = {
     -- Grades/Ranks
     ['grade_management'] = 'Gestión de Rangos',
     ['create_grade'] = 'Crear Rango',
+    ['create_rank'] = 'Crear Rango',
     ['edit_grade'] = 'Editar Rango',
     ['delete_grade'] = 'Eliminar Rango',
     ['grade_name'] = 'Nombre del Rango',
@@ -60,6 +61,11 @@ Locales['es'] = {
     ['marker_harvest'] = 'Punto de Cosecha',
     ['marker_processing'] = 'Punto de Procesamiento',
     ['marker_armory'] = 'Armería',
+    ['marker_stash'] = 'Almacén',
+    ['marker_wardrobe'] = 'Guardarropa',
+    ['marker_job_outfit'] = 'Uniforme de Trabajo',
+    ['marker_weapon_upgrader'] = 'Mejorador de Armas',
+    ['marker_jobshop'] = 'Tienda de Trabajo',
     
     -- Actions
     ['handcuff'] = 'Esposar',
@@ -86,6 +92,7 @@ Locales['es'] = {
     ['import_job'] = 'Importar Trabajo',
     ['job_shared'] = 'Trabajo compartido exitosamente',
     ['job_imported'] = 'Trabajo importado exitosamente',
+    ['coming_soon'] = 'Próximamente',
     
     -- Statistics
     ['statistics'] = 'Estadísticas',
@@ -93,6 +100,20 @@ Locales['es'] = {
     ['player_count'] = 'Cantidad de Jugadores',
     ['economic_balance'] = 'Balance Económico',
     ['grade_distribution'] = 'Distribución de Rangos',
+    
+    -- Settings
+    ['settings'] = 'Configuración',
+    ['language'] = 'Idioma',
+    ['menu_language'] = 'Idioma del Menú',
+    ['player_menu'] = 'Menú de Jugador',
+    ['targeting_script'] = 'Script de Apuntado',
+    ['help_notification'] = 'Notificaciones de Ayuda',
+    ['unemployed_job'] = 'ID de Trabajo Desempleado',
+    ['unemployed_grade'] = 'Grado Desempleado',
+    ['use_ace_permissions'] = 'Usar Permisos ACE',
+    ['advanced_options'] = 'Opciones Avanzadas',
+    ['old_esx_safe'] = 'Caja Fuerte con Efectivo (ESX Antiguo)',
+    ['settings_saved'] = 'Configuración guardada',
     
     -- Errors
     ['error'] = 'Error',
