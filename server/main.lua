@@ -33,7 +33,9 @@ AddEventHandler('jobcreator:server:saveSettings', function(settings)
         return
     end
     
-    -- Update config dynamically (in-memory only, requires restart for persistence)
+    -- Update config dynamically (in-memory only)
+    -- NOTE: These settings are temporary and will reset on resource restart
+    -- For permanent changes, modify config.lua directly
     if settings.language then Config.Locale = settings.language end
     if settings.targeting then 
         if settings.targeting == 'ox_target' then

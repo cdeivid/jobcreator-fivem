@@ -146,6 +146,9 @@
                             <h2>Settings</h2>
                             <button class="btn btn-primary" onclick="saveSettings()">💾 Save Settings</button>
                         </div>
+                        <div class="settings-notice" style="background: rgba(255, 152, 0, 0.2); border: 1px solid rgba(255, 152, 0, 0.4); border-radius: 8px; padding: 15px; margin-bottom: 20px; color: rgba(255, 255, 255, 0.9);">
+                            <strong>⚠️ Note:</strong> Settings changes are temporary and will reset on resource restart. For permanent changes, edit config.lua directly.
+                        </div>
                         <div class="settings-content">
                             <div class="settings-group">
                                 <h3>General Settings</h3>
@@ -234,10 +237,10 @@
                         </div>
                         
                         <div class="job-detail-tabs">
-                            <button class="job-tab-btn active" onclick="showJobTab('ranks')">Ranks</button>
-                            <button class="job-tab-btn" onclick="showJobTab('markers')">Markers</button>
-                            <button class="job-tab-btn" onclick="showJobTab('job-statistics')">Statistics</button>
-                            <button class="job-tab-btn" onclick="showJobTab('job-settings')">Settings</button>
+                            <button class="job-tab-btn active" onclick="showJobTab('ranks')" data-tab="ranks">Ranks</button>
+                            <button class="job-tab-btn" onclick="showJobTab('markers')" data-tab="markers">Markers</button>
+                            <button class="job-tab-btn" onclick="showJobTab('job-statistics')" data-tab="job-statistics">Statistics</button>
+                            <button class="job-tab-btn" onclick="showJobTab('job-settings')" data-tab="job-settings">Settings</button>
                         </div>
                         
                         <div class="job-detail-content">
