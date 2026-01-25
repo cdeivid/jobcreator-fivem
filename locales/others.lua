@@ -1,32 +1,58 @@
 -- Placeholder locales for additional languages
 -- These should be translated by the community
 
+-- Crear tabla Locales si no está definida
+Locales = Locales or {}
+
+-- Idioma en inglés base
+Locales['en'] = Locales['en'] or {}
+
 -- Greek - Placeholder (needs translation)
 Locales['el'] = {}
-for k, v in pairs(Locales['en']) do
-    Locales['el'][k] = v .. ' [EL]'
+if Locales['en'] ~= nil then
+    for k, v in pairs(Locales['en']) do
+        Locales['el'][k] = v .. ' [EL]'
+    end
+else
+    print("Error: Locales['en'] no está definido.")
 end
 
 -- Bosnian - Placeholder (needs translation)
 Locales['bs'] = {}
-for k, v in pairs(Locales['en']) do
-    Locales['bs'][k] = v .. ' [BS]'
+if Locales['en'] ~= nil then
+    for k, v in pairs(Locales['en']) do
+        Locales['bs'][k] = v .. ' [BS]'
+    end
+else
+    print("Error: Locales['en'] no está definido.")
 end
 
 -- Slovak - Placeholder (needs translation)
 Locales['sk'] = {}
-for k, v in pairs(Locales['en']) do
-    Locales['sk'][k] = v .. ' [SK]'
+if Locales['en'] ~= nil then
+    for k, v in pairs(Locales['en']) do
+        Locales['sk'][k] = v .. ' [SK]'
+    end
+else
+    print("Error: Locales['en'] no está definido.")
 end
 
 -- Danish - Placeholder (needs translation)
 Locales['da'] = {}
-for k, v in pairs(Locales['en']) do
-    Locales['da'][k] = v .. ' [DA]'
+if Locales['en'] ~= nil then
+    for k, v in pairs(Locales['en']) do
+        Locales['da'][k] = v .. ' [DA]'
+    end
+else
+    print("Error: Locales['en'] no está definido.")
 end
 
 -- Czech - Placeholder (needs translation)
 Locales['cs'] = {}
-for k, v in pairs(Locales['en']) do
-    Locales['cs'][k] = v .. ' [CS]'
+if Locales['en'] ~= nil then
+    for k, v in pairs(Locales['en']) do
+        Locales['cs'][k] = v .. ' [CS]'
+    end
+else
+    print("Error: Locales['en'] no está definido.")
 end
