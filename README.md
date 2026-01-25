@@ -215,14 +215,6 @@ Restart your FiveM server and the script will start automatically.
 
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-## 🙏 Credits
-
-- Inspired by **Jobs Creator** by **Jaksam**
-- Developed by the FiveM community
-- Thanks to all contributors
-
----
-
 **Version:** 1.0.0  
 **Last Updated:** 2024  
 **Compatibility:** FiveM Latest, ESX Legacy, QBCore
