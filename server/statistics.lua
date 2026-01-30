@@ -41,23 +41,19 @@ function Statistics.Update()
     -- Update database in a single thread to prevent overhead
     Citizen.CreateThread(function()
         for jobName, stats in pairs(jobStats) do
-            -- Check if job exists before inserting statistics
-            MySQL.Async.fetchAll('SELECT name FROM jobcreator_jobs WHERE name = @name', {
-                ['@name'] = jobName
-            }, function(result)
-                if result and #result > 0 then
-                    -- Job exists, proceed with statistics insert/update
-                    MySQL.Async.execute('INSERT INTO jobcreator_statistics (job_name, player_count, total_salary) VALUES (@job_name, @player_count, @total_salary) ON DUPLICATE KEY UPDATE player_count = @player_count, total_salary = @total_salary',
-                    {
-                        ['@job_name'] = jobName,
-                        ['@player_count'] = stats.player_count,
-                        ['@total_salary'] = stats.total_salary
-                    }, function() end)
-                else
-                    -- Job doesn't exist, log error
-                    print('[JobCreator] Error: Cannot insert statistics for non-existent job: ' .. jobName)
-                end
-            end)
+            -- Check if job exists in memory before inserting statistics
+            if Jobs.List[jobName] then
+                -- Job exists, proceed with statistics insert/update
+                MySQL.Async.execute('INSERT INTO jobcreator_statistics (job_name, player_count, total_salary) VALUES (@job_name, @player_count, @total_salary) ON DUPLICATE KEY UPDATE player_count = @player_count, total_salary = @total_salary',
+                {
+                    ['@job_name'] = jobName,
+                    ['@player_count'] = stats.player_count,
+                    ['@total_salary'] = stats.total_salary
+                }, function() end)
+            else
+                -- Job doesn't exist, log error
+                print('[JobCreator] Error: Cannot insert statistics for non-existent job: ' .. jobName)
+            end
             Citizen.Wait(10) -- Small delay between queries
         end
     end)
